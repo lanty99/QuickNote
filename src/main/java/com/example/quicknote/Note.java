@@ -6,7 +6,8 @@ import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
 
-@Entity public class Note {
+@Entity
+public class Note {
 
     @Id
     @GeneratedValue
