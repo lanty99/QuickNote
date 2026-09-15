@@ -1,0 +1,11 @@
+### Get all notes
+GET http://localhost:8080/notes
+
+### Create a note
+POST http://localhost:8080/notes
+Content-Type: application/json
+
+{
+  "title": "Study",
+  "content": "Learn coding"
+}
