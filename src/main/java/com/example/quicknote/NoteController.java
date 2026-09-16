@@ -36,11 +36,25 @@ public class NoteController {
             updatedNote.setCreatedAt(existingNote.getCreatedAt());
             ResponseEntity<Note> ok = ResponseEntity.ok(noteRepository.save(updatedNote));
             return ok;
+        } else {
+            return ResponseEntity.notFound().build();
         }
-            else{
-                return ResponseEntity.notFound().build();
-            }
 
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Note> deleteNote(@PathVariable Long id) {
+        Optional<Note> byId = noteRepository.findById(id);
+        if (byId.isPresent()) {
+            noteRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
         }
+        else {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+
+
 
     }
