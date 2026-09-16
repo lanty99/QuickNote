@@ -2,12 +2,12 @@
 GET http://localhost:8080/notes
 
 ### Edit a note
-PUT http://localhost:8080/notes/202
+PUT http://localhost:8080/notes/252
 Content-Type: application/json
 
 {
-  "title": "Study",
-  "content": "Revise coding"
+  "title": "",
+  "content": "Lift weights"
 }
 
 ### Delete a note
@@ -19,6 +19,6 @@ POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
-  "title": "Study",
-  "content": "Learn coding"
+  "title": "Gym",
+  "content": "Lift weights"
 }

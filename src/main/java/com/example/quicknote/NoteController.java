@@ -1,4 +1,5 @@
 package com.example.quicknote;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
@@ -22,13 +23,13 @@ public class NoteController {
 
     }
     @PostMapping
-    public Note createNote(@RequestBody Note note) {
+    public Note createNote(@Valid @RequestBody Note note) {
         note.setCreatedAt(LocalDateTime.now());
-        return noteRepository.save(note);
+            return noteRepository.save(note);
+        }
 
-    }
     @PutMapping("/{id}")
-    public ResponseEntity<Note> updateNote(@PathVariable Long id, @RequestBody Note updatedNote) {
+    public ResponseEntity<Note> updateNote(@Valid @PathVariable Long id, @RequestBody Note updatedNote) {
         Optional<Note> byId = noteRepository.findById(id);
         if (byId.isPresent()) {
             Note existingNote = byId.get();
